@@ -49,7 +49,7 @@ export default function Footer() {
                   href="https://twitter.com/adasah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#262626] bg-[#161616] text-neutral-500 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-600 hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#262626] bg-[#161616] text-neutral-500 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-orange-500 hover:to-orange-600 hover:text-white"
                   aria-label="twitter"
                 >
                   <FontAwesomeIcon icon={faXTwitter} />
@@ -58,7 +58,7 @@ export default function Footer() {
                   href="https://github.com/adasah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#262626] bg-[#161616] text-neutral-500 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-600 hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#262626] bg-[#161616] text-neutral-500 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-orange-500 hover:to-orange-600 hover:text-white"
                   aria-label="github"
                 >
                   <FontAwesomeIcon icon={faGithub} />
@@ -67,7 +67,7 @@ export default function Footer() {
                   href="https://linkedin.com/company/adasah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#262626] bg-[#161616] text-neutral-500 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-600 hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#262626] bg-[#161616] text-neutral-500 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-orange-500 hover:to-orange-600 hover:text-white"
                   aria-label="linkedin"
                 >
                   <FontAwesomeIcon icon={faLinkedin} />
@@ -76,7 +76,7 @@ export default function Footer() {
                   href="https://youtube.com/@adasah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#262626] bg-[#161616] text-neutral-500 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-gradient-to-br hover:from-orange-500 hover:to-orange-600 hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#262626] bg-[#161616] text-neutral-500 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-orange-500 hover:to-orange-600 hover:text-white"
                   aria-label="youtube"
                 >
                   <FontAwesomeIcon icon={faYoutube} />
