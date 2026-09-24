@@ -1,4 +1,4 @@
-name: Build and deploy to GitHub Pages
+name: Deploy all projects to GitHub Pages
 
 on:
   push:
@@ -12,11 +12,20 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
+
+env:
+  # Folder that contains your projects. Must match the real folder name exactly.
+  #   "."            -> projects live directly in the repo root (project-1, project-2, ...)
+  #   "simple-pages" -> projects live inside a wrapper folder
+  PROJECTS_DIR: "."
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,33 +34,53 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Assemble site (one URL per project folder)
+        run: |
+          set -e
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
 
-      - name: Build
-        run: npm run build
+          if [ ! -d "$PROJECTS_DIR" ]; then
+            echo "Folder '$PROJECTS_DIR' not found. Fix PROJECTS_DIR in the workflow."
+            exit 1
+          fi
+
+          mkdir -p _site
+          LINKS=""
+
+          for dir in "$PROJECTS_DIR"/*/; do
+            name="$(basename "$dir")"
+            case "$name" in _site|node_modules) continue ;; esac
+
+            if [ -f "$dir/package.json" ]; then
+              # Framework project (Vite, etc.): build it, publish dist
+              echo "Building $name"
+              (
+                cd "$dir"
+                if [ -f package-lock.json ]; then npm ci; else npm install; fi
+                npm run build -- --base="/$REPO_NAME/$name/"
+              )
+              cp -r "$dir/dist" "_site/$name"
+            else
+              # Plain HTML/CSS/JS: publish as-is
+              echo "Copying $name"
+              cp -r "$dir" "_site/$name"
+            fi
+
+            LINKS="$LINKS<li><a href=\"./$name/\">$name</a></li>"
+          done
+
+          # Auto-generated home page listing every project
+          echo "<!doctype html><meta charset=utf-8><title>Projects</title><h1>Projects</h1><ul>$LINKS</ul>" > _site/index.html
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload build output
+      - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          # Pick ONE, depending on your framework:
-          #   Vite (React)        -> ./dist
-          #   Create React App    -> ./build
-          #   Next.js (export)    -> ./out
-          path: ./dist
+          path: _site
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
