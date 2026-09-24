@@ -1,4 +1,4 @@
-# Lens — Photography Blog
+# Adasa — Photography Blog
 
 A modern, fully responsive photography blog built with **React**, **TypeScript**, and **Tailwind CSS**. Lens showcases articles on photography techniques, gear, and inspiration, with a polished dark UI, dynamic filtering, and a rich reading experience.
 
