@@ -9,16 +9,26 @@ A modern, fully responsive photography blog built with **React**, **TypeScript**
 
 ---
 
+## 🔗 Live Demo
+
+**[View Live Demo →](https://adasa.amroadel-farid.workers.dev)**
+
+---
+
 ## ✨ Features
 
 ### 🏠 Home Page
+
 A landing page that introduces the blog and highlights its best content, including:
+
 - Hero section with a clear value proposition
 - Featured / most popular posts
 - Quick access to categories and calls-to-action driving readers into the blog
 
 ### 📰 Blogs Page
+
 The main content hub, with a fully interactive browsing experience:
+
 - **Live search** — filters results as you type (activates only after 3+ characters to avoid noisy partial matches)
 - **Category filtering** — filter posts by category, synced to the URL (`/blog?category=Portrait`) so filtered views are shareable and bookmarkable
 - **Grid & List views** — toggle between a card grid and a detailed list layout
@@ -27,7 +37,9 @@ The main content hub, with a fully interactive browsing experience:
 - **Smooth scroll-to-top** on page navigation
 
 ### 📖 Blog Details Page
+
 A beautifully styled reading experience for individual articles:
+
 - Full-bleed hero image with breadcrumb navigation and category badge
 - Auto-generated **table of contents** parsed directly from the article body
 - Clean typographic content sections with icon-accented headings
@@ -35,28 +47,32 @@ A beautifully styled reading experience for individual articles:
 - **Related articles** — automatically surfaced from the same category
 
 ### 👥 About Us Page
+
 Introduces the team behind the blog:
+
 - Mission statement and key stats (readers, articles, writers, categories)
 - Core values section
 - **Writers showcase** — dynamically rendered from post author data
 
 ### 📄 Privacy & Terms Pages
+
 Standard legal pages for transparency and compliance.
 
 ### 🚫 Not Found (404) Page
+
 A custom fallback for any unmatched route, keeping navigation consistent with the rest of the site.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Category         | Technology                          |
-|-------------------|--------------------------------------|
-| Framework          | React (with TypeScript)             |
-| Routing            | React Router                        |
-| Styling            | Tailwind CSS                        |
-| Icons              | Lucide React, Font Awesome          |
-| Data Source        | Local JSON (`posts.json`)           |
+| Category    | Technology                 |
+| ----------- | -------------------------- |
+| Framework   | React (with TypeScript)    |
+| Routing     | React Router               |
+| Styling     | Tailwind CSS               |
+| Icons       | Lucide React, Font Awesome |
+| Data Source | Local JSON (`posts.json`)  |
 
 ---
 
@@ -90,6 +106,7 @@ src/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher recommended)
 - npm / yarn / pnpm
 
@@ -126,11 +143,13 @@ npm run preview
 ## 📝 Content Management
 
 All blog content currently lives in `src/posts.json`, including:
+
 - **Posts** — title, slug, excerpt, content, category, author, image, date, read time, tags
 - **Categories** — name, post count, accent color
 - **Site Info** — name, tagline, description, social links
 
 Article content supports lightweight markdown-style formatting:
+
 ```
 Intro paragraph here.
 
@@ -138,22 +157,23 @@ Intro paragraph here.
 
 Paragraph content for this section...
 ```
+
 Sections separated by blank lines and prefixed with `## ` are automatically rendered as headings and populate the table of contents on the Blog Details page.
 
 ---
 
 ## 🗺️ Routing
 
-| Route                          | Page              |
-|---------------------------------|--------------------|
-| `/`                              | Home              |
-| `/about`                         | About Us          |
-| `/blog`                          | Blogs (all posts) |
-| `/blog?category=<Category>`      | Blogs (filtered)  |
-| `/blog/:slug`                    | Blog Details      |
-| `/privacy`                       | Privacy Policy    |
-| `/terms`                         | Terms of Service  |
-| `*`                               | 404 Not Found     |
+| Route                       | Page              |
+| --------------------------- | ----------------- |
+| `/`                         | Home              |
+| `/about`                    | About Us          |
+| `/blog`                     | Blogs (all posts) |
+| `/blog?category=<Category>` | Blogs (filtered)  |
+| `/blog/:slug`               | Blog Details      |
+| `/privacy`                  | Privacy Policy    |
+| `/terms`                    | Terms of Service  |
+| `*`                         | 404 Not Found     |
 
 ---
 
